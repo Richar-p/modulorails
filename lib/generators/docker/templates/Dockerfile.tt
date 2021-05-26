@@ -25,4 +25,4 @@ COPY --from=wkhtmltopdf /bin/wkhtmltopdf /usr/bin/wkhtmltopdf
 
 EXPOSE 3000
 
-ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
+CMD ["./entrypoints/docker-entrypoint.sh"]
