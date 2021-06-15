@@ -23,12 +23,13 @@ services:
     entrypoint: ./entrypoints/docker-entrypoint.sh
 
   database:
-    image: mysql:8.0
+    image: mysql/mysql-server:8.0
     volumes:
       - db_data:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
       MYSQL_DATABASE: <%= image_name %>
+      MYSQL_ROOT_HOST: '%'
 
   redis:
     image: redis:6.2-alpine
