@@ -33,5 +33,10 @@ services:
   redis:
     image: redis:6.2-alpine
 
+  mailcatcher:
+    image: tophfr/mailcatcher
+    ports:
+      - 1080:80
+
 volumes:
   db_data:
