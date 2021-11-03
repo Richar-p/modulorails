@@ -17,6 +17,8 @@ module Modulorails
         # Check database configuration
         Modulorails.check_database_config
 
+        # Warn project_access not configured
+        Modulorails.warn_access_missing if Modulorails.configuration.project_access.nil?
         # Gem's self-update if a new version was released
         # Modulorails.self_update
       end

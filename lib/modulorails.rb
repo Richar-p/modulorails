@@ -128,5 +128,19 @@ module Modulorails
     rescue StandardError => e
       puts("[Modulorails] An error occured: #{e.class} - #{e.message}")
     end
+
+    # @author RICHARD Peter <richar_p@modulotech.fr>
+    #
+    # Puts a big warning to prevent an project_access key missing.
+    def warn_access_missing
+      puts "\t\e[46m\e[31m\e[1m[Modulorails] The configuration key project_access are not present. You must insert an hash in it, with in key all urls of the project and in value an api key for each server.\e[22m\e[0m
+      \t\e[31mExample :
+      \t{
+      \t  \"https://server01.com/\"     => \"API_KEY01\",
+      \t  \"https://www.server02.fr\"   => \"API_KEY02\",
+      \t  \"https://www.server03.net/\" => \"API_KEY03\",
+      \t  \"https://server04.io\"       => \"API_KEY04\"
+      \t}\e[0m"
+    end
   end
 end

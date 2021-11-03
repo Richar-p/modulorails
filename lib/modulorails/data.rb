@@ -40,6 +40,19 @@ module Modulorails
       # the application ;)
       @project_manager = configuration.project_manager
 
+      # @author RICHARD Peter <richar_p@modulotech.fr>
+      # The project_access configuration key must contain an hash with in keys
+      # all productions url and in value all api_key for
+      # this instance.
+      # Example :
+      ## {
+      ##    "https://server01.com/"     => "API_KEY01",
+      ##    "https://www.server02.fr"   => "API_KEY02",
+      ##    "https://www.server03.net/" => "API_KEY03",
+      ##    "https://server04.io"       => "API_KEY04"
+      ## }
+      @project_access = configuration.project_access
+
       # Theorically, origin is the main repository of the project and git is the sole VCS we use
       # at Modulotech
       @repository = Git.open(::Rails.root).config('remote.origin.url')
@@ -97,6 +110,7 @@ module Modulorails
           'rails_version'       => @rails_version,
           'bundler_version'     => @bundler_version,
           'modulorails_version' => @modulorails_version,
+          'project_access'      => @project_access,
           'database'            => {
             'adapter'     => @adapter,
             'db_version'  => @db_version,
